@@ -21,20 +21,24 @@ public class FirstMavenClass {
         WebDriverManager.chromedriver().setup();
         WebDriver driver=new ChromeDriver();
         driver.manage().window().maximize();
-        //   1- https://www.amazon.com/ sayfasina gidelim
-        driver.get("https://www.amazon.com/ ");
-        //   2- arama kutusunu locate edelim
-        WebElement serachBox= driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
-       ////3- “Samsung headphones” ile arama yapalim
+        //1- https://www.amazon.com/ sayfasina gidelim
+        driver.get("https://www.amazon.com/");
+        //2- arama kutusunu locate edelim
+        WebElement searchBox = driver.findElement(By.cssSelector("input[id='twotabsearchtextbox']"));
+
+        //3- “Samsung headphones” ile arama yapalim
         String arananKelime="Samsung headphones";
-        serachBox.sendKeys(arananKelime+ Keys.ENTER);
-//4- Bulunan sonuc sayisini yazdiralim
-        WebElement sonucSayisi= driver.findElement(By.xpath("(//span[@dir='auto'])[1]"));
+        searchBox.sendKeys(arananKelime);
+        searchBox.submit();
+        //4- Bulunan sonuc sayisini yazdiralim
+
+        WebElement sonucSayisi = driver.findElement(By.xpath("(//span[@dir='auto'])[1]"));
         System.out.println(sonucSayisi.getText());
-////5- Ilk urunu tiklayalim
+        //5- Ilk urunu tiklayalim
         driver.findElement(By.xpath("(//img[@class='s-image'])[1]")).click();
         driver.navigate().back();
-//6- Sayfadaki tum basliklari yazdiralim
+
+        //6-
         List<WebElement> baslikListesi = driver.findElements(By.xpath("(//span[@dir='auto'])"));
         for (WebElement w : baslikListesi
         ) {
@@ -42,7 +46,6 @@ public class FirstMavenClass {
         }
 
         driver.close();
-
 
     }
 
