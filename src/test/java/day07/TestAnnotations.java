@@ -9,33 +9,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class TestAnnotations {
-WebDriver driver;
-@Before
-public  void setUp(){
-    WebDriverManager.chromedriver().setup();
-     driver=new ChromeDriver();
-}
+    WebDriver driver;
 
-    //!--- BU BIR METHOD
-    @Test
-    public void test01(){
-    driver.get("https://www.techproeducation.com");
-        driver.close();
+    @Before
+    public void setUp() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
     }
-   @Test
-   @Ignore
-   public void test02(){
-    driver.get("https://google.com");
-    driver.close();
-   }
-   @Test
-    public void test03(){
-       driver.get("https://youtube.com");
 
-   }
+    @Test
+    public void test01() {
+        driver.get("https://www.techproeducation.com");
+    }
 
-   @After
-    public void tearDown(){
-       driver.close();
-   }
+    @Test
+    @Ignore
+    public void test02() {
+        driver.get("https://www.google.com");
+    }
+
+    @Test
+    public void test03() {
+        driver.get("https://www.youtube.com");
+    }
+
+    @After
+    public void tearDown() {
+        driver.close();
+
+    }
 }

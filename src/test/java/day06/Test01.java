@@ -64,10 +64,11 @@ public class Test01 {
         //9- Kac sonuc bulundugunu yaziniz
         WebElement sonucYazisi=driver.findElement(By.className("result-summary-container"));
         System.out.println(sonucYazisi.getText());
+        //System.out.println(driver.findElement(By.className("result-summary-container")).getText());
+        //75 ve 76.satirlar yerine 78.satirdaki gibi tum islemleri tek bir satirda yaptirabiliriz
+        // ancak kodun anlasilmasi acisindan bu sekilde yazim tavsiye edilmez
         //10-Sayfayi kapatin
-
-        //10-Sayfayi kapatin
-            driver.close();
+        driver.close();
 
 
 
@@ -75,7 +76,8 @@ public class Test01 {
 
 
 
-        }
+
+    }
     }
 
 

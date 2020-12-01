@@ -23,26 +23,31 @@ public class RadioButtonTest {
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(55, TimeUnit.SECONDS);
         driver.manage().window().maximize();
+        // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
     }
     @Test
-    public void facebook(){
-        //  - https://www.facebook.com adresine gidin
+    public void adreseGit(){
         driver.get("https://www.facebook.com");
         //  - “Create an Account” button’una basin
-        driver.findElement((By.id("u_0_2"))).click();
+        driver.findElement(By.id("u_0_2")).click();
         //  - “radio buttons” elementlerini locate edin
-        WebElement maleRadioButton=driver.findElement(By.id("u_1_b"));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebElement femaleButtonu= driver.findElement(By.id("u_1_4"));
+
+        //  WebElement maleButtonu= driver.findElement(By.id("u_1_5"));
+        //   WebElement CUSTOMbUTTONU= driver.findElement(By.id("u_1_6"));
+
         //  - Secili degilse cinsiyet butonundan size uygun olani secin
-        if(!maleRadioButton.isSelected()){
-            maleRadioButton.click();
+        if(!femaleButtonu.isSelected()){
+            femaleButtonu.click();
         }
     }
+
     @After
     public void tearDown(){
         driver.close();
-
     }
 
 
